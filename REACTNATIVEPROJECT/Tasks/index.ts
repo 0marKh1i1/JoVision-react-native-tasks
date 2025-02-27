@@ -1,8 +1,3 @@
-import Task16 from "./Task16";
-import Task17 from "./Task17";
-import Task18 from "./Task18";
-export {
-    Task16 , 
-    Task17 ,
-    Task18 ,
-};
+export { default as Task16 } from './Task16';
+export { default as Task17 } from './Task17';
+export { default as Task18 } from './Task18';
