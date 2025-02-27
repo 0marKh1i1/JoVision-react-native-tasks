@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Task16 from './Tasks/Task16'
+import {Task16 , Task17} from './Tasks'
 
 export default function App(): React.JSX.Element {
 
@@ -14,9 +14,10 @@ export default function App(): React.JSX.Element {
 
   return (
     <View style={styles.container}>
-      <Task16></Task16>
+      {/* <Task16></Task16> */}
+      <Task17></Task17>
     </View>
-    // <task17></task17>
+    // <task16></task16>
   );
 }
 
