@@ -1,5 +1,7 @@
 export {default as MyClassComponent_Tak19} from './MyClassComponent_Tak19';
 export {default as MyClassComponent_Tak20} from './MyClassComponent_Tak20';
+export {default as MyClassComponent_Tak23} from './MyClassComponent_Tak23';
+export {default as MyClassComponent_Tak25} from './MyClassComponent_Tak25';
 export {default as MyFunctionalComponent_Task21} from './MyFunctionalComponent_Task21';
 export {default as MyFunctionalComponent_Task22} from './MyFunctionalComponent_Task22';
-export {default as MyClassComponent_Tak23} from './MyClassComponent_Tak23';
+export {default as MyFunctionalComponent_Task24} from './MyFunctionalComponent_Task24';
