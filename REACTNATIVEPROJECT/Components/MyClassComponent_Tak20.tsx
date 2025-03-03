@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 
 
 
-class MyClassComponent_Tak20 extends Component<{}> {
+class MyClassPage extends Component<{}> {
     constructor(props : {}) {
       super(props);
       this.state = {};
@@ -36,4 +36,4 @@ class MyClassComponent_Tak20 extends Component<{}> {
       );
     }
 }
-export default MyClassComponent_Tak20;
+export default MyClassPage;

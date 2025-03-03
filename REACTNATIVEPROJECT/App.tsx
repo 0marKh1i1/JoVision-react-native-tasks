@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {Task16 , Task17, Task18 , Task19, Task20} from './Tasks';
+import {Task16 , Task17, Task18 , Task19, Task20, Task21} from './Tasks';
 
 export default function App(): React.JSX.Element {
 
@@ -19,7 +19,8 @@ export default function App(): React.JSX.Element {
       {/* <Task17 /> */}
       {/* <Task18 /> */}
       {/* <Task19 /> */}
-      <Task20 />
+      {/* <Task20 /> */}
+      <Task21 />
     </View>
   );
 }
