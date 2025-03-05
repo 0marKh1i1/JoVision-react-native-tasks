@@ -85,7 +85,7 @@ const imageList: imageData[] = [
   },
 ];
 
-const Task25 = () => {
+const Task28 = () => {
   const [selectedId, setSelectedId] = useState<string>();
 
   const imgSelectHandle = (index: number) => {
@@ -110,7 +110,7 @@ const Task25 = () => {
         <FlatList
           data={imageList}
           renderItem={renderImage}
-          keyExtractor={item => item.id}
+          keyExtractor={(item, index) => index.toString()}
           extraData={selectedId}
           horizontal={true}
           contentContainerStyle={styles.flatListCont}
@@ -120,4 +120,4 @@ const Task25 = () => {
   );
 };
 
-export default Task25;
+export default Task28;

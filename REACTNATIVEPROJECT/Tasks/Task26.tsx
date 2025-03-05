@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 
 
 
-const Task25 = () => {
+const Task26 = () => {
   const [ip, setIp] = useState<string>('Example');
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -96,4 +96,4 @@ const Task25 = () => {
     );
 };
 
-export default Task25;
+export default Task26;

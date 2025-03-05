@@ -39,7 +39,7 @@ const imageMap: {[key:string]:any} = {
   '911-gt3-rs': require('../Resource/911-gt3-rs.png'),
 };
 
-const Task25 = () => {
+const Task27 = () => {
   const [imgSource,setImgSource] = useState<string>('911-dakar')
   useEffect(() => {
     const imageSource = imageMap[imgSource];
@@ -80,5 +80,5 @@ const Task25 = () => {
     );
 };
 
-export default Task25;
+export default Task27;
  
