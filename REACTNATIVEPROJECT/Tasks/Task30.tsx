@@ -3,10 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View , Text, TouchableOpacity, Image, Dimensions, Alert, SafeAreaView, FlatList, Modal, TextInput } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-const Task29 = () => {
+const Task30 = () => {
   const [selectedId, setSelectedId] = useState<string>();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>('');
+  const [imageList, setImageList] = useState<imageData[]>(initialImageList);
   const scrollRef = useRef<FlatList>(null);
 
   const imgSelectHandle = (index: number) => {
@@ -16,12 +17,16 @@ const Task29 = () => {
 
   const renderImage = ({ item, index }: { item: imageData, index: number }) => {
     const selectedImg = item.id === selectedId ? true : false;
-
     return (
-      <TouchableOpacity onPress={() => imgSelectHandle(index)} style={styles.img}>
-        <Image source={item.path} style={styles.img} />
-        {selectedImg && <View style={styles.overlay} />}
-      </TouchableOpacity>
+      <View style={styles.imgContainer}>
+        <TouchableOpacity onPress={() => imgSelectHandle(index)} style={styles.img}>
+          <Image source={item.path} style={styles.img} />
+          {selectedImg && <View style={styles.overlay} />}
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => handleImgDelete(item.id)} style={styles.deleteBtn}>
+          <Text style={styles.deleteBtnText}>Delete</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 
@@ -36,6 +41,14 @@ const Task29 = () => {
     }
   };
 
+  const handleImgDelete = (id: string) => {
+    const updatedList = imageList.filter(item => item.id !== id);
+    if (updatedList.length > 0) {
+      scrollRef.current?.scrollToIndex({ animated: true, index: updatedList.length - 1 });
+    }
+    setImageList(updatedList);
+  }
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -44,7 +57,7 @@ const Task29 = () => {
           transparent={true}
           visible={modalVisible}
           onRequestClose={() => {
-            setModalVisible(!modalVisible);
+            setModalVisible((prev) => !prev);
           }}>
             <View style={styles.container}>
               <View style={styles.modal}>
@@ -86,7 +99,66 @@ const Task29 = () => {
   );
 };
 
-export default Task29;
+export default Task30;
+
+type imageData = {
+  title: string,
+  id: string,
+  path: any,
+}
+
+const initialImageList: imageData[] = [
+  {
+    title: '911-gt3-rs',
+    id: '911-gt3-rs',
+    path: require('../Resource/911-gt3-rs.png')
+  },
+  {
+    title: '911_dakar',
+    id: '911_dakar',
+    path: require('../Resource/911_dakar.png')
+  },
+  {
+    title: '911_992',
+    id: '911_992',
+    path: require('../Resource/911_992.png')
+  },
+  {
+    title: 'bugatti_classic',
+    id: 'bugatti_classic',
+    path: require('../Resource/bugatti_classic.jpg')
+  },
+  {
+    title: 'Audi-R8-V10',
+    id: 'Audi-R8-V10',
+    path: require('../Resource/Audi-R8-V10.jpg')
+  },
+  {
+    title: 'bugatti-chiron',
+    id: 'bugatti-chiron',
+    path: require('../Resource/bugatti-chiron.jpg')
+  },
+  {
+    title: 'Bugatti_Veyron',
+    id: 'Bugatti_Veyron',
+    path: require('../Resource/Bugatti_Veyron.jpeg')
+  },
+  {
+    title: 'Bugatti_Tourbillon',
+    id: 'Bugatti_Tourbillon',
+    path: require('../Resource/Bugatti_Tourbillon.jpg')
+  },
+  {
+    title: 'bugatti-divo',
+    id: 'bugatti-divo',
+    path: require('../Resource/bugatti-divo.jpg')
+  },
+  {
+    title: 'Barbagallo_Maserati.jpg',
+    id: 'Barbagallo_Maserati',
+    path: require('../Resource/Barbagallo_Maserati.jpg')
+  },
+];
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -95,6 +167,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  imgContainer: {
+    position: 'relative',
   },
   img: {
     height: 400,
@@ -168,65 +243,16 @@ const styles = StyleSheet.create({
     borderRadius:20,
     color:'black',
   },
+  deleteBtn: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: 'red',
+    padding: 10,
+    borderRadius: 5,
+  },
+  deleteBtnText: {
+    color: 'white',
+    fontSize: 16,
+  },
 });
-
-type imageData = {
-  title: string,
-  id: string,
-  path: any,
-}
-
-const imageList: imageData[] = [
-  {
-    title: '911-gt3-rs',
-    id: '911-gt3-rs',
-    path: require('../Resource/911-gt3-rs.png')
-  },
-  {
-    title: '911_dakar',
-    id: '911_dakar',
-    path: require('../Resource/911_dakar.png')
-  },
-  {
-    title: '911_992',
-    id: '911_992',
-    path: require('../Resource/911_992.png')
-  },
-  {
-    title: 'bugatti_classic',
-    id: 'bugatti_classic',
-    path: require('../Resource/bugatti_classic.jpg')
-  },
-  {
-    title: 'Audi-R8-V10',
-    id: 'Audi-R8-V10',
-    path: require('../Resource/Audi-R8-V10.jpg')
-  },
-  {
-    title: 'bugatti-chiron',
-    id: 'bugatti-chiron',
-    path: require('../Resource/bugatti-chiron.jpg')
-  },
-  {
-    title: 'Bugatti_Veyron',
-    id: 'Bugatti_Veyron',
-    path: require('../Resource/Bugatti_Veyron.jpeg')
-  },
-  {
-    title: 'Bugatti_Tourbillon',
-    id: 'Bugatti_Tourbillon',
-    path: require('../Resource/Bugatti_Tourbillon.jpg')
-  },
-  {
-    title: 'bugatti-divo',
-    id: 'bugatti-divo',
-    path: require('../Resource/bugatti-divo.jpg')
-  },
-  {
-    title: 'Barbagallo_Maserati.jpg',
-    id: 'Barbagallo_Maserati',
-    path: require('../Resource/Barbagallo_Maserati.jpg')
-  },
-];
-
-
