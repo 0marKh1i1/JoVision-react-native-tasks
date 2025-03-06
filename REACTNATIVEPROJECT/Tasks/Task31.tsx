@@ -45,7 +45,8 @@ const Task31 = () => {
   };
 
   const handleImgDelete = (id: string, index: number) => {
-    const updatedList = imageList.filter(item => item.id !== id);
+    const updatedList = [...imageList];
+    updatedList.splice(index,1);
     if (updatedList.length > 0) {
       scrollRef.current?.scrollToIndex({ animated: true, index: index - 1 });
     }
