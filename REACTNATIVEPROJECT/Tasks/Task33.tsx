@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
-import React, { useRef } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Dimensions, Image } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { StyleSheet, View, SafeAreaView, Dimensions, Image, TouchableOpacity } from 'react-native';
 import Video from 'react-native-video';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -21,8 +21,9 @@ const VideoPlayer: React.FC = () => {
         paused={true}
         repeat={true}
         controls={false}
-        poster={posterUri} 
+        poster={posterUri}
       />
+      <PauseVideo videoRef={videoRef} />
     </View>
   );
 };
@@ -39,8 +40,24 @@ const Task32: React.FC = () => {
 
 export default Task32;
 
-function PauseVideo () {
+function PauseVideo({ videoRef }: { videoRef: any }) {
+  const [isPaused, setIsPaused] = useState<boolean>(true);
+  let iconName: string = isPaused ? 'play-circle' : 'pause-circle';
 
+  const playHandle = () => {
+    setIsPaused((prev) => !prev);
+    if (isPaused) {
+      videoRef.current?.resume();
+    } else {
+      videoRef.current?.pause();
+    }
+  };
+
+  return (
+    <TouchableOpacity style={styles.iconContainer} onPress={playHandle}>
+      <Icon name={iconName} size={50} color="#999" />
+    </TouchableOpacity>
+  );
 }
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -54,9 +71,16 @@ const styles = StyleSheet.create({
   videoContainer: {
     width: screenWidth - 20,
     height: 500,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   backgroundVideo: {
     width: '100%',
     height: '100%',
+  },
+  iconContainer: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
