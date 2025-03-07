@@ -28,7 +28,7 @@ const VideoPlayer: React.FC = () => {
   );
 };
 
-const Task32: React.FC = () => {
+const Task33: React.FC = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -38,7 +38,7 @@ const Task32: React.FC = () => {
   );
 };
 
-export default Task32;
+export default Task33;
 
 function PauseVideo({ videoRef }: { videoRef: any }) {
   const [isPaused, setIsPaused] = useState<boolean>(true);
