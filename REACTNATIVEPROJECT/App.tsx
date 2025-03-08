@@ -1,43 +1,45 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {Task16 , Task17, Task18 , Task19, Task20, Task21, Task22, Task23, Task24, Task25, Task26, Task27, Task28, Task29, Task30, Task31, Task32, Task33, Task34, Task35, Task36, Task37} from './Tasks';
+import * as Tasks from './Tasks';
 
 export default function App(): React.JSX.Element {
 
-  const styles = StyleSheet.create({
-        container: {
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        },
-      });
-
   return (
     <View style={styles.container}>
-      {/* <Task16 /> */}
-      {/* <Task17 /> */}
-      {/* <Task18 /> */}
-      {/* <Task19 /> */}
-      {/* <Task20 /> */}
-      {/* <Task21 /> */}
-      {/* <Task22 /> */}
-      {/* <Task23 /> */}
-      {/* <Task24 /> */}
-      {/* <Task25 /> */}
-      {/* <Task26 /> */}
-      {/* <Task27 /> */}
-      {/* <Task28 /> */}
-      {/* <Task29 /> */}
-      {/* <Task30 /> */}
-      {/* <Task31 /> */}
-      {/* <Task32 /> */}
-      {/* <Task33 /> */}
-      {/* <Task34 /> */}
-      {/* <Task35 /> */}
-      {/* <Task36 /> */}
-      <Task37 />
+    {/*   
+      <Tasks.Task16 />
+      <Tasks.Task17 />
+      <Tasks.Task18 />
+      <Tasks.Task19 />
+      <Tasks.Task20 />
+      <Tasks.Task21 />
+      <Tasks.Task22 />
+      <Tasks.Task23 />
+      <Tasks.Task24 />
+      <Tasks.Task25 />
+      <Tasks.Task26 />
+      <Tasks.Task27 />
+      <Tasks.Task28 />
+      <Tasks.Task29 />
+      <Tasks.Task30 />
+      <Tasks.Task31 />
+      <Tasks.Task32 />
+      <Tasks.Task33 />
+      <Tasks.Task34 />
+      <Tasks.Task35 />
+      <Tasks.Task36 />
+      <Tasks.Task37 />
+    */}
+      <Tasks.Task38 />
     </View>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
