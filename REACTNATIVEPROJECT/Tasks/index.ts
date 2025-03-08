@@ -18,3 +18,4 @@ export { default as Task32 } from './Task32';
 export { default as Task33 } from './Task33';
 export { default as Task34 } from './Task34';
 export { default as Task35 } from './Task35';
+export { default as Task36 } from './Task36';
