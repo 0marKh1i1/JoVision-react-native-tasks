@@ -20,8 +20,8 @@ function Task36() {
             style={styles.scrollContainer}
             contentContainerStyle={{justifyContent:'center',alignItems: 'center',}}
             >
-                {textList.map((text) => (
-                    <Text>
+                {textList.map((text,index) => (
+                    <Text key={index}>
                         {text}
                     </Text>
                 ))}
