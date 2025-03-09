@@ -30,8 +30,9 @@ export default function App(): React.JSX.Element {
       <Tasks.Task35 />
       <Tasks.Task36 />
       <Tasks.Task37 />
-    */}
       <Tasks.Task38 />
+    */}
+      <Tasks.Task39 />
     </View>
   );
 }
